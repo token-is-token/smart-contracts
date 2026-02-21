@@ -963,7 +963,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 3)
 
-- [ ] 17. 核心合约单元测试 (Hardhat)
+- [x] 17. 核心合约单元测试 (Hardhat)
 
   **What to do**:
   - 创建 test/unit/PaymentSettlement.test.ts
@@ -1009,7 +1009,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 3)
 
-- [ ] 18. 核心合约Fuzz测试 (Foundry)
+- [x] 18. 核心合约Fuzz测试 (Foundry)
 
   **What to do**:
   - 创建 test/fuzz/PaymentSettlementFuzz.t.sol
