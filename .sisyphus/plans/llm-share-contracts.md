@@ -1299,7 +1299,7 @@ Max Concurrent: 7 (Wave 3)
 
 ### Wave 5: 工具库和完整集成
 
-- [ ] 24. Utils工具库实现
+- [x] 24. Utils工具库实现
 
   **What to do**:
   - 创建 contracts/libraries/Utils.sol
@@ -1340,7 +1340,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 5)
 
-- [ ] 25. 合约间集成测试
+- [x] 25. 合约间集成测试
 
   **What to do**:
   - 创建 test/integration/ProtocolIntegration.test.ts
@@ -1382,7 +1382,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 5)
 
-- [ ] 26. 完整流程E2E测试
+- [x] 26. 完整流程E2E测试
 
   **What to do**:
   - 创建 test/e2e/FullFlow.test.ts
@@ -1425,7 +1425,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 5)
 
-- [ ] 27. 升级回归测试
+- [x] 27. 升级回归测试
 
   **What to do**:
   - 创建 test/upgrade/CoreUpgrade.test.ts
