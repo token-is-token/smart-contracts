@@ -3,8 +3,9 @@
 ## TL;DR
 
 > **Quick Summary**: 开发完整的 LLM Share Network 智能合约系统，包括7个核心可升级合约、接口定义、完整测试套件、部署脚本和CI/CD配置。
-> 
+>
 > **Deliverables**:
+>
 > - 7个核心合约 (ShareToken, PaymentSettlement, UsageRegistry, ProviderStaking, Governor, Timelock, Treasury)
 > - 3个接口定义 + 1个工具库
 > - Hardhat + Foundry 双框架测试套件
@@ -21,22 +22,28 @@
 ## Context
 
 ### Original Request
+
 用户要求按照 `.prompts` 文件夹中的7个提示词文档，开发完整的 LLM Share Network 智能合约系统。
 
 ### Interview Summary
+
 **Key Discussions**:
+
 - 合约升级策略: Transparent代理模式
 - 0G Chain配置: 使用TODO占位符
 - 部署地址: 使用TODO占位符
 - 测试策略: Hardhat + Foundry 双框架并重
 
 **Research Findings**:
+
 - 项目为全新项目，无现有代码库
 - 使用OpenZeppelin Contracts标准模式
 - 需要使用 openzeppelin-contracts-upgradeable 进行代理模式实现
 
 ### Metis Review
+
 **Identified Gaps** (addressed):
+
 - 信任模型/用量真实性: 假设由授权的 UsageReporter 角色上报，防止虚报通过 MINTER_ROLE 权限控制
 - 动态铸造公式: 使用 `.prompts` 中定义的铸造系数表，无总量上限
 - 治理投票权来源: 使用 ShareToken (ERC20Votes)，接受动态铸造带来的投票权变化
@@ -48,9 +55,11 @@
 ## Work Objectives
 
 ### Core Objective
+
 构建一个完整的、可升级的、安全的智能合约系统，支持 LLM Share Network 的代币经济、支付结算、用量记录、提供者质押和DAO治理功能。
 
 ### Concrete Deliverables
+
 - `contracts/token/ShareToken.sol` - ERC20动态铸造代币
 - `contracts/core/PaymentSettlement.sol` - 支付结算合约
 - `contracts/core/UsageRegistry.sol` - 用量记录合约
@@ -67,6 +76,7 @@
 - `docs/architecture.md` - 架构文档
 
 ### Definition of Done
+
 - [ ] 所有合约编译成功 (`npx hardhat compile` && `forge build`)
 - [ ] 所有测试通过 (`npx hardhat test` && `forge test`)
 - [ ] 代码风格检查通过 (`npm run lint`)
@@ -74,6 +84,7 @@
 - [ ] CI/CD流程配置完成
 
 ### Must Have
+
 - 所有7个核心合约完整实现
 - 完整的单元测试覆盖
 - 可工作的部署脚本
@@ -81,6 +92,7 @@
 - OpenZeppelin安全模式
 
 ### Must NOT Have (Guardrails)
+
 - **不引入未讨论模块**: 预言机、跨链桥、复杂AMM/LP管理、链上仲裁
 - **不实现多签合约**: Treasury多签作为外部地址
 - **不使用不受限数组遍历**: 所有批量操作必须有上限或使用pull-based模式
@@ -94,12 +106,14 @@
 > **ZERO HUMAN INTERVENTION** — ALL verification is agent-executed. No exceptions.
 
 ### Test Decision
+
 - **Infrastructure exists**: NO (全新项目)
 - **Automated tests**: YES (TDD)
 - **Framework**: Hardhat (TypeScript) + Foundry (Solidity)
 - **TDD Workflow**: 每个任务遵循 RED → GREEN → REFACTOR
 
 ### QA Policy
+
 Every task MUST include agent-executed QA scenarios.
 Evidence saved to `.sisyphus/evidence/task-{N}-{scenario-slug}.{ext}`.
 
@@ -174,15 +188,15 @@ Max Concurrent: 7 (Wave 3)
 
 ### Dependency Matrix
 
-| Task | Depends On | Blocks |
-|------|------------|--------|
-| 1-6 | — | 7-39 |
-| 7-11 | 1-6 | 12-27 |
-| 12-18 | 7-11 | 19-27 |
-| 19-23 | 12-18 | 24-33 |
-| 24-27 | 19-23 | 28-39 |
-| 28-33 | 24-27 | 34-39 |
-| 34-39 | 28-33 | — |
+| Task  | Depends On | Blocks |
+| ----- | ---------- | ------ |
+| 1-6   | —          | 7-39   |
+| 7-11  | 1-6        | 12-27  |
+| 12-18 | 7-11       | 19-27  |
+| 19-23 | 12-18      | 24-33  |
+| 24-27 | 19-23      | 28-39  |
+| 28-33 | 24-27      | 34-39  |
+| 34-39 | 28-33      | —      |
 
 ### Agent Dispatch Summary
 
@@ -205,7 +219,7 @@ Max Concurrent: 7 (Wave 3)
   **What to do**:
   - 创建完整目录结构 (contracts/, test/, scripts/, deployments/, docs/, .github/)
   - 创建 LICENSE (MIT)
-  - 更新 .gitignore (node_modules, cache, artifacts, .env, deployments/*.json)
+  - 更新 .gitignore (node_modules, cache, artifacts, .env, deployments/\*.json)
   - 创建 deployments/README.md
 
   **Must NOT do**:
@@ -233,6 +247,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] .gitignore 包含所有必要条目
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证目录结构
     Tool: Bash
@@ -277,6 +292,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] tsconfig.json 配置正确
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证Hardhat配置
     Tool: Bash
@@ -318,6 +334,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] remappings.txt 包含 OpenZeppelin 映射
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证Foundry配置
     Tool: Bash
@@ -360,6 +377,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npm run lint 脚本可用
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证lint配置
     Tool: Bash
@@ -401,6 +419,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] @openzeppelin/hardhat-upgrades 已安装
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证OpenZeppelin依赖
     Tool: Bash
@@ -441,6 +460,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] docs/architecture.md 骨架存在
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证文档骨架
     Tool: Bash
@@ -493,6 +513,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证接口编译
     Tool: Bash
@@ -548,6 +569,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证ShareToken编译
     Tool: Bash
@@ -594,6 +616,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/unit/ShareToken.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行ShareToken单元测试
     Tool: Bash
@@ -636,6 +659,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] forge test --match-contract ShareTokenFuzz 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行ShareToken Fuzz测试
     Tool: Bash
@@ -680,6 +704,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 状态保持测试通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行代理升级测试
     Tool: Bash
@@ -729,6 +754,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证接口编译
     Tool: Bash
@@ -771,6 +797,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证接口编译
     Tool: Bash
@@ -820,6 +847,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证PaymentSettlement编译
     Tool: Bash
@@ -869,6 +897,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证UsageRegistry编译
     Tool: Bash
@@ -922,6 +951,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证ProviderStaking编译
     Tool: Bash
@@ -967,6 +997,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/unit/ProviderStaking.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行核心合约单元测试
     Tool: Bash
@@ -1007,9 +1038,10 @@ Max Concurrent: 7 (Wave 3)
 
   **Acceptance Criteria**:
   - [ ] Fuzz测试覆盖核心功能
-  - [ ] forge test --match-path "test/fuzz/*Fuzz.t.sol" 全部通过
+  - [ ] forge test --match-path "test/fuzz/\*Fuzz.t.sol" 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行核心合约Fuzz测试
     Tool: Bash
@@ -1062,6 +1094,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证Timelock编译
     Tool: Bash
@@ -1110,6 +1143,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证Governor编译
     Tool: Bash
@@ -1158,6 +1192,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证Treasury编译
     Tool: Bash
@@ -1203,6 +1238,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/unit/Treasury.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行治理合约单元测试
     Tool: Bash
@@ -1244,6 +1280,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/integration/GovernanceIntegration.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行治理集成测试
     Tool: Bash
@@ -1291,6 +1328,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 编译通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证Utils编译
     Tool: Bash
@@ -1332,6 +1370,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/integration/ProtocolIntegration.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行协议集成测试
     Tool: Bash
@@ -1374,6 +1413,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/e2e/FullFlow.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行E2E测试
     Tool: Bash
@@ -1414,6 +1454,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/upgrade/CoreUpgrade.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行升级回归测试
     Tool: Bash
@@ -1463,6 +1504,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 本地网络测试通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行Token部署脚本
     Tool: Bash
@@ -1504,6 +1546,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 本地网络测试通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行Core部署脚本
     Tool: Bash
@@ -1547,6 +1590,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 本地网络测试通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行Governance部署脚本
     Tool: Bash
@@ -1590,6 +1634,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 本地网络测试通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行完整部署脚本
     Tool: Bash
@@ -1631,6 +1676,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 可配置区块浏览器
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证脚本语法
     Tool: Bash
@@ -1671,6 +1717,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] npx hardhat test test/deployment/DeploymentScripts.test.ts 全部通过
 
   **QA Scenarios**:
+
   ```
   Scenario: 运行部署脚本测试
     Tool: Bash
@@ -1720,6 +1767,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 包含所有测试步骤
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证test.yml语法
     Tool: Bash
@@ -1760,6 +1808,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 包含所有检查步骤
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证lint.yml语法
     Tool: Bash
@@ -1800,6 +1849,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 包含安全扫描步骤
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证security.yml语法
     Tool: Bash
@@ -1843,6 +1893,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 手动触发配置
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证deploy-testnet.yml语法
     Tool: Bash
@@ -1883,6 +1934,7 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 模板内容完整
 
   **QA Scenarios**:
+
   ```
   Scenario: 验证GitHub模板
     Tool: Bash
@@ -1931,7 +1983,8 @@ Max Concurrent: 7 (Wave 3)
   - [ ] 安全模型文档化
 
   **QA Scenarios**:
-  ```
+
+  ````
   Scenario: 验证架构文档
     Tool: Bash
     Steps:
@@ -1939,7 +1992,7 @@ Max Concurrent: 7 (Wave 3)
       2. grep -q "合约架构" docs/architecture.md
     Expected Result: 文档包含架构图和描述
     Evidence: .sisyphus/evidence/task-39-architecture.txt
-  ```
+  ````
 
   **Commit**: YES (Wave 7 完成提交)
   - Message: `ci: GitHub Actions workflows and documentation`
@@ -1951,26 +2004,27 @@ Max Concurrent: 7 (Wave 3)
 ## Final Verification Wave (MANDATORY)
 
 - [ ] F1. **Plan Compliance Audit** — `oracle`
-  Verify all Must Have deliverables exist, all Must NOT Have absent.
-  Output: `Must Have [N/N] | Must NOT Have [N/N] | VERDICT: APPROVE/REJECT`
+      Verify all Must Have deliverables exist, all Must NOT Have absent.
+      Output: `Must Have [N/N] | Must NOT Have [N/N] | VERDICT: APPROVE/REJECT`
 
 - [ ] F2. **Code Quality Review** — `unspecified-high`
-  Run `npx hardhat compile` + `forge build` + `npx hardhat test` + `forge test` + `npm run lint`.
-  Output: `Build [PASS/FAIL] | Tests [N pass/N fail] | Lint [PASS/FAIL] | VERDICT`
+      Run `npx hardhat compile` + `forge build` + `npx hardhat test` + `forge test` + `npm run lint`.
+      Output: `Build [PASS/FAIL] | Tests [N pass/N fail] | Lint [PASS/FAIL] | VERDICT`
 
 - [ ] F3. **Integration QA** — `unspecified-high`
-  Execute complete deployment flow on local network, verify all contracts deployed.
-  Output: `Deployment [N/N contracts] | Upgrade [PASS/FAIL] | VERDICT`
+      Execute complete deployment flow on local network, verify all contracts deployed.
+      Output: `Deployment [N/N contracts] | Upgrade [PASS/FAIL] | VERDICT`
 
 - [ ] F4. **Scope Fidelity Check** — `deep`
-  Verify no scope creep, all guardrails respected.
-  Output: `Guardrails [N/N compliant] | Scope Creep [CLEAN/N issues] | VERDICT`
+      Verify no scope creep, all guardrails respected.
+      Output: `Guardrails [N/N compliant] | Scope Creep [CLEAN/N issues] | VERDICT`
 
 ---
 
 ## Commit Strategy
 
 每个Wave完成后单独提交：
+
 - **Wave 1**: `chore(init): project scaffolding and configuration`
 - **Wave 2**: `feat(token): ShareToken implementation with tests`
 - **Wave 3**: `feat(core): PaymentSettlement, UsageRegistry, ProviderStaking`
@@ -1984,6 +2038,7 @@ Max Concurrent: 7 (Wave 3)
 ## Success Criteria
 
 ### Verification Commands
+
 ```bash
 # 编译检查
 npx hardhat compile  # Expected: exit code 0
@@ -2002,6 +2057,7 @@ npx hardhat run scripts/deploy/deploy-all.ts --network hardhat  # Expected: all 
 ```
 
 ### Final Checklist
+
 - [ ] 所有7个核心合约实现完成
 - [ ] 所有3个接口定义完成
 - [ ] Hardhat + Foundry 测试全部通过

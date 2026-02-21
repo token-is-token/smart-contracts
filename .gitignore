@@ -54,8 +54,15 @@ temp/
 
 # Test coverage
 coverage/
+coverage.json
 .coverage
 *.lcov
+
+# Hardhat/Foundry
+cache/
+artifacts/
+typechain-types/
+deployments/*.json
 
 # Package manager files
 *.lock
