@@ -1736,7 +1736,7 @@ Max Concurrent: 7 (Wave 3)
 
 ### Wave 7: CI/CD和文档
 
-- [ ] 34. test.yml工作流
+- [x] 34. test.yml工作流
 
   **What to do**:
   - 创建 .github/workflows/test.yml
@@ -1779,7 +1779,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 7)
 
-- [ ] 35. lint.yml工作流
+- [x] 35. lint.yml工作流
 
   **What to do**:
   - 创建 .github/workflows/lint.yml
@@ -1820,7 +1820,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 7)
 
-- [ ] 36. security.yml工作流
+- [x] 36. security.yml工作流
 
   **What to do**:
   - 创建 .github/workflows/security.yml
@@ -1861,7 +1861,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 7)
 
-- [ ] 37. deploy-testnet.yml工作流
+- [x] 37. deploy-testnet.yml工作流
 
   **What to do**:
   - 创建 .github/workflows/deploy-testnet.yml
@@ -1905,7 +1905,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 7)
 
-- [ ] 38. GitHub Issue/PR模板
+- [x] 38. GitHub Issue/PR模板
 
   **What to do**:
   - 创建 .github/ISSUE_TEMPLATE/bug_report.md
@@ -1949,7 +1949,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 7)
 
-- [ ] 39. 完整架构文档
+- [x] 39. 完整架构文档
 
   **What to do**:
   - 更新 docs/architecture.md
