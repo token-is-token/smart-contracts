@@ -581,7 +581,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 2)
 
-- [ ] 9. ShareToken单元测试 (Hardhat)
+- [x] 9. ShareToken单元测试 (Hardhat)
 
   **What to do**:
   - 创建 test/unit/ShareToken.test.ts
@@ -628,7 +628,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 2)
 
-- [ ] 10. ShareToken Fuzz测试 (Foundry)
+- [x] 10. ShareToken Fuzz测试 (Foundry)
 
   **What to do**:
   - 创建 test/fuzz/ShareTokenFuzz.t.sol
@@ -671,7 +671,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 2)
 
-- [ ] 11. ShareToken代理升级测试
+- [x] 11. ShareToken代理升级测试
 
   **What to do**:
   - 创建 test/upgrade/ShareTokenUpgrade.test.ts

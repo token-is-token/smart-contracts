@@ -1,0 +1,1 @@
+- In Hardhat tests, avoid using signers' properties (like `user1.address`) in `describe` blocks directly, as they might be undefined during the initial test discovery phase. Use `beforeEach` or define them inside `it` blocks.

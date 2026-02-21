@@ -40,3 +40,9 @@
 - Set solc version to 0.8.19.
 - Configured remappings for OpenZeppelin via node_modules.
 - Set test directory to test/foundry.
+
+## 2026-02-21 Update: Foundry test 路径与 solc 版本对齐
+
+- **Decision**: 将 `foundry.toml` 的 `test` 目录改为 `test/`（从 `test/foundry`）。
+- **Rationale**: 仓库测试结构使用 `test/{unit,integration,fuzz,...}`，将 Foundry 测试直接放在 `test/fuzz` 更符合约定，且 `forge test --match-contract` 可直接发现合约。
+- **Note**: ShareToken 依赖 OZ upgradeable（^0.8.20），Foundry/合约编译器版本需保持 0.8.20。

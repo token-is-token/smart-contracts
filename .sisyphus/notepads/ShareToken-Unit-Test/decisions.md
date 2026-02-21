@@ -1,0 +1,2 @@
+- Used `upgrades.deployProxy` for testing the Transparent Proxy pattern of ShareToken.
+- Implemented comprehensive tests covering deployment, minting distribution (85/10/5), airdrops, and governance constraints (20% rate change limit).
