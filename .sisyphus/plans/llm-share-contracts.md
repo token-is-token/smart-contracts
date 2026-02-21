@@ -723,7 +723,7 @@ Max Concurrent: 7 (Wave 3)
 
 ### Wave 3: 核心业务合约
 
-- [ ] 12. IPaymentSettlement接口定义
+- [x] 12. IPaymentSettlement接口定义
 
   **What to do**:
   - 创建 contracts/interfaces/IPaymentSettlement.sol
@@ -766,7 +766,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 3)
 
-- [ ] 13. IProviderStaking接口定义
+- [x] 13. IProviderStaking接口定义
 
   **What to do**:
   - 创建 contracts/interfaces/IProviderStaking.sol
@@ -809,7 +809,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 3)
 
-- [ ] 14. PaymentSettlement合约实现
+- [x] 14. PaymentSettlement合约实现
 
   **What to do**:
   - 创建 contracts/core/PaymentSettlement.sol
@@ -859,7 +859,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 3)
 
-- [ ] 15. UsageRegistry合约实现
+- [x] 15. UsageRegistry合约实现
 
   **What to do**:
   - 创建 contracts/core/UsageRegistry.sol
@@ -909,7 +909,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 3)
 
-- [ ] 16. ProviderStaking合约实现
+- [x] 16. ProviderStaking合约实现
 
   **What to do**:
   - 创建 contracts/core/ProviderStaking.sol
