@@ -1473,7 +1473,7 @@ Max Concurrent: 7 (Wave 3)
 
 ### Wave 6: 部署脚本
 
-- [ ] 28. deploy-token.ts部署脚本
+- [x] 28. deploy-token.ts部署脚本
 
   **What to do**:
   - 创建 scripts/deploy/deploy-token.ts
@@ -1516,7 +1516,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 6)
 
-- [ ] 29. deploy-core.ts部署脚本
+- [x] 29. deploy-core.ts部署脚本
 
   **What to do**:
   - 创建 scripts/deploy/deploy-core.ts
@@ -1558,7 +1558,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 6)
 
-- [ ] 30. deploy-governance.ts部署脚本
+- [x] 30. deploy-governance.ts部署脚本
 
   **What to do**:
   - 创建 scripts/deploy/deploy-governance.ts
@@ -1602,7 +1602,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 6)
 
-- [ ] 31. deploy-all.ts完整部署脚本
+- [x] 31. deploy-all.ts完整部署脚本
 
   **What to do**:
   - 创建 scripts/deploy/deploy-all.ts
@@ -1647,7 +1647,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 6)
 
-- [ ] 32. verify-contracts.ts验证脚本
+- [x] 32. verify-contracts.ts验证脚本
 
   **What to do**:
   - 创建 scripts/verify/verify-contracts.ts
@@ -1688,7 +1688,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 6)
 
-- [ ] 33. 部署脚本测试
+- [x] 33. 部署脚本测试
 
   **What to do**:
   - 创建 test/deployment/DeploymentScripts.test.ts
