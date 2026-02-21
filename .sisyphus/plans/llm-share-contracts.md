@@ -1060,7 +1060,7 @@ Max Concurrent: 7 (Wave 3)
 
 ### Wave 4: 治理合约
 
-- [ ] 19. Timelock合约实现
+- [x] 19. Timelock合约实现
 
   **What to do**:
   - 创建 contracts/governance/Timelock.sol
@@ -1106,7 +1106,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 4)
 
-- [ ] 20. Governor合约实现
+- [x] 20. Governor合约实现
 
   **What to do**:
   - 创建 contracts/governance/Governor.sol
@@ -1155,7 +1155,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 4)
 
-- [ ] 21. Treasury合约实现
+- [x] 21. Treasury合约实现
 
   **What to do**:
   - 创建 contracts/governance/Treasury.sol
@@ -1204,7 +1204,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 4)
 
-- [ ] 22. 治理合约单元测试 (Hardhat)
+- [x] 22. 治理合约单元测试 (Hardhat)
 
   **What to do**:
   - 创建 test/unit/Timelock.test.ts
@@ -1250,7 +1250,7 @@ Max Concurrent: 7 (Wave 3)
 
   **Commit**: NO (groups with Wave 4)
 
-- [ ] 23. 治理合约集成测试
+- [x] 23. 治理合约集成测试
 
   **What to do**:
   - 创建 test/integration/GovernanceIntegration.test.ts
