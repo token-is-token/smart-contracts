@@ -95,12 +95,14 @@ contract ShareToken is
         _grantRole(MINTER_ROLE, admin_);
         _grantRole(AIRDROP_ROLE, admin_);
 
-        // Initial minting rates (per 1K tokens)
-        _mintingRates["claude-3-opus"] = 1000;
-        _mintingRates["claude-3-sonnet"] = 500;
-        _mintingRates["gpt-4-turbo"] = 800;
-        _mintingRates["gpt-3.5-turbo"] = 100;
-        _mintingRates["seedance-2.0"] = 10000;
+        // Initial minting rates (per 1K tokens, in wei = 10^-18 SHARE)
+        // @dev Rate unit: wei per 1K tokens. E.g., claude-3-opus = 1e15 wei = 0.001 SHARE per 1K tokens
+        // @dev These values are 10^15 times the spec values to account for 18 decimals
+        _mintingRates["claude-3-opus"] = 1e15;      // 0.001 SHARE / 1K tokens
+        _mintingRates["claude-3-sonnet"] = 5e14;    // 0.0005 SHARE / 1K tokens
+        _mintingRates["gpt-4-turbo"] = 8e14;        // 0.0008 SHARE / 1K tokens
+        _mintingRates["gpt-3.5-turbo"] = 1e14;      // 0.0001 SHARE / 1K tokens
+        _mintingRates["seedance-2.0"] = 1e16;       // 0.01 SHARE / 1K tokens (video: per second)
     }
 
     // ============ Minting ============
